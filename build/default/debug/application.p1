@@ -1,0 +1,654 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"13 ./MCAL_Layer/types_structure/stack_ds.h
+[; ;./MCAL_Layer/types_structure/stack_ds.h: 13: typedef struct{
+[s S273 `uc 1 `uc 1 `*uc 1 ]
+[n S273 . stack_top stack_capacity stack_data ]
+[p mainexit ]
+"9 application.c
+[; ;application.c: 9: void app_initialize(void);
+[v _app_initialize `(v ~T0 @X0 0 ef ]
+"57 ./ECU_Layer/Realclock_DS1307/../../MCAL_Layer/MSSP_I2C/../../MCAL_Layer/GPIO/hal_gpio.h
+[s S274 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . port pin direction logic ]
+"15 ./ECU_Layer/KEYPAD/ecu_keypad.h
+[; ;./ECU_Layer/KEYPAD/ecu_keypad.h: 15: typedef struct{
+[s S280 `S274 -> 4 `i `S274 -> 4 `i ]
+[n S280 . pad_row pad_column ]
+"35
+[; ;./ECU_Layer/KEYPAD/ecu_keypad.h: 35: Std_ReturnType keypad_get_value(const keypad_t *keypad , uint8 *value );
+[v _keypad_get_value `(uc ~T0 @X0 0 ef2`*CS280`*uc ]
+"12 application.c
+[; ;application.c: 12: extern keypad_t keypad_1;
+[v _keypad_1 `S280 ~T0 @X0 0 e ]
+"26 ./MCAL_Layer/types_structure/stack_ds.h
+[; ;./MCAL_Layer/types_structure/stack_ds.h: 26: void push(stack_t* stack, uint8 item);
+[v _push `(v ~T0 @X0 0 ef2`*S273`uc ]
+"32
+[; ;./MCAL_Layer/types_structure/stack_ds.h: 32: uint8 peek(const stack_t* stack);
+[v _peek `(uc ~T0 @X0 0 ef1`*CS273 ]
+"35 ./ECU_Layer/CHR_LCD/ecu_chr_lcd.h
+[; ;./ECU_Layer/CHR_LCD/ecu_chr_lcd.h: 35: typedef struct{
+[s S282 `S274 1 `S274 1 `S274 -> 4 `i ]
+[n S282 . pin_Rs pin_en lcd_pins ]
+"56
+[; ;./ECU_Layer/CHR_LCD/ecu_chr_lcd.h: 56: Std_ReturnType lcd_4bit_send_data_char_posit(const chr_lcd_4bit_t *lcd ,uint8 row , uint8 colunm , uint8 data);
+[v _lcd_4bit_send_data_char_posit `(uc ~T0 @X0 0 ef4`*CS282`uc`uc`uc ]
+"13 application.c
+[; ;application.c: 13: extern chr_lcd_4bit_t lcd_2;
+[v _lcd_2 `S282 ~T0 @X0 0 e ]
+[v F690 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
+[v __delay `JF690 ~T0 @X0 0 e ]
+[p i __delay ]
+"34 ./MCAL_Layer/types_structure/stack_ds.h
+[; ;./MCAL_Layer/types_structure/stack_ds.h: 34: void fully_poped(stack_t* stack);
+[v _fully_poped `(v ~T0 @X0 0 ef1`*S273 ]
+"54 ./ECU_Layer/CHR_LCD/ecu_chr_lcd.h
+[; ;./ECU_Layer/CHR_LCD/ecu_chr_lcd.h: 54: Std_ReturnType lcd_4bit_send_command(const chr_lcd_4bit_t *lcd , uint8 command);
+[v _lcd_4bit_send_command `(uc ~T0 @X0 0 ef2`*CS282`uc ]
+"11 application.c
+[; ;application.c: 11: uint8 f_operation_resul_for_mult_div(void);
+[v _f_operation_resul_for_mult_div `(uc ~T0 @X0 0 ef ]
+"27 ./ECU_Layer/KEYPAD/ecu_keypad.h
+[; ;./ECU_Layer/KEYPAD/ecu_keypad.h: 27: Std_ReturnType keypad_initialize(const keypad_t *keypad);
+[v _keypad_initialize `(uc ~T0 @X0 0 ef1`*CS280 ]
+"52 ./ECU_Layer/CHR_LCD/ecu_chr_lcd.h
+[; ;./ECU_Layer/CHR_LCD/ecu_chr_lcd.h: 52: Std_ReturnType lcd_4bit_initialize(const chr_lcd_4bit_t *lcd );
+[v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS282 ]
+"36 ./MCAL_Layer/types_structure/stack_ds.h
+[; ;./MCAL_Layer/types_structure/stack_ds.h: 36: uint8 stack_size(stack_t* stack);
+[v _stack_size `(uc ~T0 @X0 0 ef1`*S273 ]
+"29
+[; ;./MCAL_Layer/types_structure/stack_ds.h: 29: uint8 pop(stack_t* stack);
+[v _pop `(uc ~T0 @X0 0 ef1`*S273 ]
+"54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\../proc/pic18f4620.h
+[; <" PORTA equ 0F80h ;# ">
+"191
+[; <" PORTB equ 0F81h ;# ">
+"362
+[; <" PORTC equ 0F82h ;# ">
+"537
+[; <" PORTD equ 0F83h ;# ">
+"679
+[; <" PORTE equ 0F84h ;# ">
+"882
+[; <" LATA equ 0F89h ;# ">
+"994
+[; <" LATB equ 0F8Ah ;# ">
+"1106
+[; <" LATC equ 0F8Bh ;# ">
+"1218
+[; <" LATD equ 0F8Ch ;# ">
+"1330
+[; <" LATE equ 0F8Dh ;# ">
+"1382
+[; <" TRISA equ 0F92h ;# ">
+"1387
+[; <" DDRA equ 0F92h ;# ">
+"1604
+[; <" TRISB equ 0F93h ;# ">
+"1609
+[; <" DDRB equ 0F93h ;# ">
+"1826
+[; <" TRISC equ 0F94h ;# ">
+"1831
+[; <" DDRC equ 0F94h ;# ">
+"2048
+[; <" TRISD equ 0F95h ;# ">
+"2053
+[; <" DDRD equ 0F95h ;# ">
+"2270
+[; <" TRISE equ 0F96h ;# ">
+"2275
+[; <" DDRE equ 0F96h ;# ">
+"2434
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"2499
+[; <" PIE1 equ 0F9Dh ;# ">
+"2576
+[; <" PIR1 equ 0F9Eh ;# ">
+"2653
+[; <" IPR1 equ 0F9Fh ;# ">
+"2730
+[; <" PIE2 equ 0FA0h ;# ">
+"2796
+[; <" PIR2 equ 0FA1h ;# ">
+"2862
+[; <" IPR2 equ 0FA2h ;# ">
+"2928
+[; <" EECON1 equ 0FA6h ;# ">
+"2994
+[; <" EECON2 equ 0FA7h ;# ">
+"3001
+[; <" EEDATA equ 0FA8h ;# ">
+"3008
+[; <" EEADR equ 0FA9h ;# ">
+"3015
+[; <" EEADRH equ 0FAAh ;# ">
+"3022
+[; <" RCSTA equ 0FABh ;# ">
+"3027
+[; <" RCSTA1 equ 0FABh ;# ">
+"3232
+[; <" TXSTA equ 0FACh ;# ">
+"3237
+[; <" TXSTA1 equ 0FACh ;# ">
+"3488
+[; <" TXREG equ 0FADh ;# ">
+"3493
+[; <" TXREG1 equ 0FADh ;# ">
+"3500
+[; <" RCREG equ 0FAEh ;# ">
+"3505
+[; <" RCREG1 equ 0FAEh ;# ">
+"3512
+[; <" SPBRG equ 0FAFh ;# ">
+"3517
+[; <" SPBRG1 equ 0FAFh ;# ">
+"3524
+[; <" SPBRGH equ 0FB0h ;# ">
+"3531
+[; <" T3CON equ 0FB1h ;# ">
+"3643
+[; <" TMR3 equ 0FB2h ;# ">
+"3650
+[; <" TMR3L equ 0FB2h ;# ">
+"3657
+[; <" TMR3H equ 0FB3h ;# ">
+"3664
+[; <" CMCON equ 0FB4h ;# ">
+"3754
+[; <" CVRCON equ 0FB5h ;# ">
+"3833
+[; <" ECCP1AS equ 0FB6h ;# ">
+"3915
+[; <" PWM1CON equ 0FB7h ;# ">
+"3985
+[; <" BAUDCON equ 0FB8h ;# ">
+"3990
+[; <" BAUDCTL equ 0FB8h ;# ">
+"4157
+[; <" CCP2CON equ 0FBAh ;# ">
+"4236
+[; <" CCPR2 equ 0FBBh ;# ">
+"4243
+[; <" CCPR2L equ 0FBBh ;# ">
+"4250
+[; <" CCPR2H equ 0FBCh ;# ">
+"4257
+[; <" CCP1CON equ 0FBDh ;# ">
+"4354
+[; <" CCPR1 equ 0FBEh ;# ">
+"4361
+[; <" CCPR1L equ 0FBEh ;# ">
+"4368
+[; <" CCPR1H equ 0FBFh ;# ">
+"4375
+[; <" ADCON2 equ 0FC0h ;# ">
+"4446
+[; <" ADCON1 equ 0FC1h ;# ">
+"4531
+[; <" ADCON0 equ 0FC2h ;# ">
+"4650
+[; <" ADRES equ 0FC3h ;# ">
+"4657
+[; <" ADRESL equ 0FC3h ;# ">
+"4664
+[; <" ADRESH equ 0FC4h ;# ">
+"4671
+[; <" SSPCON2 equ 0FC5h ;# ">
+"4733
+[; <" SSPCON1 equ 0FC6h ;# ">
+"4803
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5024
+[; <" SSPADD equ 0FC8h ;# ">
+"5031
+[; <" SSPBUF equ 0FC9h ;# ">
+"5038
+[; <" T2CON equ 0FCAh ;# ">
+"5109
+[; <" PR2 equ 0FCBh ;# ">
+"5114
+[; <" MEMCON equ 0FCBh ;# ">
+"5219
+[; <" TMR2 equ 0FCCh ;# ">
+"5226
+[; <" T1CON equ 0FCDh ;# ">
+"5329
+[; <" TMR1 equ 0FCEh ;# ">
+"5336
+[; <" TMR1L equ 0FCEh ;# ">
+"5343
+[; <" TMR1H equ 0FCFh ;# ">
+"5350
+[; <" RCON equ 0FD0h ;# ">
+"5483
+[; <" WDTCON equ 0FD1h ;# ">
+"5511
+[; <" HLVDCON equ 0FD2h ;# ">
+"5516
+[; <" LVDCON equ 0FD2h ;# ">
+"5781
+[; <" OSCCON equ 0FD3h ;# ">
+"5858
+[; <" T0CON equ 0FD5h ;# ">
+"5935
+[; <" TMR0 equ 0FD6h ;# ">
+"5942
+[; <" TMR0L equ 0FD6h ;# ">
+"5949
+[; <" TMR0H equ 0FD7h ;# ">
+"5956
+[; <" STATUS equ 0FD8h ;# ">
+"6027
+[; <" FSR2 equ 0FD9h ;# ">
+"6034
+[; <" FSR2L equ 0FD9h ;# ">
+"6041
+[; <" FSR2H equ 0FDAh ;# ">
+"6048
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6055
+[; <" PREINC2 equ 0FDCh ;# ">
+"6062
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6069
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6076
+[; <" INDF2 equ 0FDFh ;# ">
+"6083
+[; <" BSR equ 0FE0h ;# ">
+"6090
+[; <" FSR1 equ 0FE1h ;# ">
+"6097
+[; <" FSR1L equ 0FE1h ;# ">
+"6104
+[; <" FSR1H equ 0FE2h ;# ">
+"6111
+[; <" PLUSW1 equ 0FE3h ;# ">
+"6118
+[; <" PREINC1 equ 0FE4h ;# ">
+"6125
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"6132
+[; <" POSTINC1 equ 0FE6h ;# ">
+"6139
+[; <" INDF1 equ 0FE7h ;# ">
+"6146
+[; <" WREG equ 0FE8h ;# ">
+"6158
+[; <" FSR0 equ 0FE9h ;# ">
+"6165
+[; <" FSR0L equ 0FE9h ;# ">
+"6172
+[; <" FSR0H equ 0FEAh ;# ">
+"6179
+[; <" PLUSW0 equ 0FEBh ;# ">
+"6186
+[; <" PREINC0 equ 0FECh ;# ">
+"6193
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"6200
+[; <" POSTINC0 equ 0FEEh ;# ">
+"6207
+[; <" INDF0 equ 0FEFh ;# ">
+"6214
+[; <" INTCON3 equ 0FF0h ;# ">
+"6306
+[; <" INTCON2 equ 0FF1h ;# ">
+"6376
+[; <" INTCON equ 0FF2h ;# ">
+"6493
+[; <" PROD equ 0FF3h ;# ">
+"6500
+[; <" PRODL equ 0FF3h ;# ">
+"6507
+[; <" PRODH equ 0FF4h ;# ">
+"6514
+[; <" TABLAT equ 0FF5h ;# ">
+"6523
+[; <" TBLPTR equ 0FF6h ;# ">
+"6530
+[; <" TBLPTRL equ 0FF6h ;# ">
+"6537
+[; <" TBLPTRH equ 0FF7h ;# ">
+"6544
+[; <" TBLPTRU equ 0FF8h ;# ">
+"6553
+[; <" PCLAT equ 0FF9h ;# ">
+"6560
+[; <" PC equ 0FF9h ;# ">
+"6567
+[; <" PCL equ 0FF9h ;# ">
+"6574
+[; <" PCLATH equ 0FFAh ;# ">
+"6581
+[; <" PCLATU equ 0FFBh ;# ">
+"6588
+[; <" STKPTR equ 0FFCh ;# ">
+"6694
+[; <" TOS equ 0FFDh ;# ">
+"6701
+[; <" TOSL equ 0FFDh ;# ">
+"6708
+[; <" TOSH equ 0FFEh ;# ">
+"6715
+[; <" TOSU equ 0FFFh ;# ">
+"8 application.c
+[; ;application.c: 8: volatile uint8 tmr1_counter = 0;
+[v _tmr1_counter `Vuc ~T0 @X0 1 e ]
+[i _tmr1_counter
+-> -> 0 `i `uc
+]
+"14
+[; ;application.c: 14: Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 e ]
+[i _ret
+-> -> 0 `i `uc
+]
+"15
+[; ;application.c: 15: stack_t stack_numbers;
+[v _stack_numbers `S273 ~T0 @X0 1 e ]
+"16
+[; ;application.c: 16: stack_t stack_operation;
+[v _stack_operation `S273 ~T0 @X0 1 e ]
+"17
+[; ;application.c: 17: uint8 value = 0;
+[v _value `uc ~T0 @X0 1 e ]
+[i _value
+-> -> 0 `i `uc
+]
+"18
+[; ;application.c: 18: uint8 tp;
+[v _tp `uc ~T0 @X0 1 e ]
+"19
+[; ;application.c: 19: uint8 lcd_counter = 1;
+[v _lcd_counter `uc ~T0 @X0 1 e ]
+[i _lcd_counter
+-> -> 1 `i `uc
+]
+"20
+[; ;application.c: 20: uint8 result = 10;
+[v _result `uc ~T0 @X0 1 e ]
+[i _result
+-> -> 10 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"21
+[; ;application.c: 21: int main() {
+[v _main `(i ~T0 @X0 1 ef ]
+{
+[e :U _main ]
+[f ]
+"22
+[; ;application.c: 22:     app_initialize();
+[e ( _app_initialize ..  ]
+"23
+[; ;application.c: 23:     while (1) {
+[e :U 295 ]
+{
+"25
+[; ;application.c: 25:         while (!value) {
+[e $U 297  ]
+[e :U 298 ]
+{
+"26
+[; ;application.c: 26:             keypad_get_value(&keypad_1, &value);
+[e ( _keypad_get_value (2 , -> &U _keypad_1 `*CS280 &U _value ]
+"28
+[; ;application.c: 28:         }
+}
+[e :U 297 ]
+"25
+[; ;application.c: 25:         while (!value) {
+[e $ ! != -> _value `i -> 0 `i 298  ]
+[e :U 299 ]
+"29
+[; ;application.c: 29:         push(&stack_numbers, value);
+[e ( _push (2 , &U _stack_numbers _value ]
+"31
+[; ;application.c: 31:         value = 0;
+[e = _value -> -> 0 `i `uc ]
+"32
+[; ;application.c: 32:         tp = peek(&stack_numbers);
+[e = _tp ( _peek (1 -> &U _stack_numbers `*CS273 ]
+"33
+[; ;application.c: 33:         ret |= lcd_4bit_send_data_char_posit(&lcd_2, 1, lcd_counter, tp);
+[e =| _ret -> ( _lcd_4bit_send_data_char_posit (4 , , , -> &U _lcd_2 `*CS282 -> -> 1 `i `uc _lcd_counter _tp `uc ]
+"34
+[; ;application.c: 34:          _delay((unsigned long)((150)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"35
+[; ;application.c: 35:         lcd_counter++;
+[e ++ _lcd_counter -> -> 1 `i `uc ]
+"36
+[; ;application.c: 36:         if (tp == 'c') {
+[e $ ! == -> _tp `ui -> 99 `ui 300  ]
+{
+"37
+[; ;application.c: 37:             fully_poped(&stack_numbers);
+[e ( _fully_poped (1 &U _stack_numbers ]
+"38
+[; ;application.c: 38:             lcd_4bit_send_command(&lcd_2, 0x01);
+[e ( _lcd_4bit_send_command (2 , -> &U _lcd_2 `*CS282 -> -> 1 `i `uc ]
+"39
+[; ;application.c: 39:             lcd_counter = 1;
+[e = _lcd_counter -> -> 1 `i `uc ]
+"40
+[; ;application.c: 40:         }else {
+}
+[e $U 301  ]
+[e :U 300 ]
+{
+"42
+[; ;application.c: 42:         }
+}
+[e :U 301 ]
+"44
+[; ;application.c: 44:         if (tp == '=' ) {
+[e $ ! == -> _tp `ui -> 61 `ui 302  ]
+{
+"45
+[; ;application.c: 45:             result = f_operation_resul_for_mult_div();
+[e = _result ( _f_operation_resul_for_mult_div ..  ]
+"46
+[; ;application.c: 46:             ret |= lcd_4bit_send_data_char_posit(&lcd_2, 1, lcd_counter,result );
+[e =| _ret -> ( _lcd_4bit_send_data_char_posit (4 , , , -> &U _lcd_2 `*CS282 -> -> 1 `i `uc _lcd_counter _result `uc ]
+"48
+[; ;application.c: 48:         }else {
+}
+[e $U 303  ]
+[e :U 302 ]
+{
+"50
+[; ;application.c: 50:         }
+}
+[e :U 303 ]
+"51
+[; ;application.c: 51:     }
+}
+[e :U 294 ]
+[e $U 295  ]
+[e :U 296 ]
+"53
+[; ;application.c: 53:     return (0);
+[e ) -> 0 `i ]
+[e $UE 293  ]
+"54
+[; ;application.c: 54: }
+[e :UE 293 ]
+}
+"56
+[; ;application.c: 56: void app_initialize(void) {
+[v _app_initialize `(v ~T0 @X0 1 ef ]
+{
+[e :U _app_initialize ]
+[f ]
+"57
+[; ;application.c: 57:     Std_ReturnType ret = (Std_ReturnType)0x00;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 0 `i `uc ]
+"58
+[; ;application.c: 58:     ret = keypad_initialize(&keypad_1);
+[e = _ret ( _keypad_initialize (1 -> &U _keypad_1 `*CS280 ]
+"59
+[; ;application.c: 59:     ret |= lcd_4bit_initialize(&lcd_2);
+[e =| _ret -> ( _lcd_4bit_initialize (1 -> &U _lcd_2 `*CS282 `uc ]
+"61
+[; ;application.c: 61: }
+[e :UE 304 ]
+}
+"63
+[; ;application.c: 63: uint8 f_operation_resul_for_mult_div(void) {
+[v _f_operation_resul_for_mult_div `(uc ~T0 @X0 1 ef ]
+{
+[e :U _f_operation_resul_for_mult_div ]
+[f ]
+"65
+[; ;application.c: 65:     uint32 result = 0;
+[v _result `ui ~T0 @X0 1 a ]
+[e = _result -> -> 0 `i `ui ]
+"67
+[; ;application.c: 67:     uint8 loop_counter = stack_size(&stack_numbers);
+[v _loop_counter `uc ~T0 @X0 1 a ]
+[e = _loop_counter ( _stack_size (1 &U _stack_numbers ]
+"69
+[; ;application.c: 69:     uint8 operation = 0;
+[v _operation `uc ~T0 @X0 1 a ]
+[e = _operation -> -> 0 `i `uc ]
+"70
+[; ;application.c: 70:  pop(&stack_numbers);
+[e ( _pop (1 &U _stack_numbers ]
+"71
+[; ;application.c: 71:     while (loop_counter--) {
+[e $U 306  ]
+[e :U 307 ]
+{
+"73
+[; ;application.c: 73:         operation = pop(&stack_numbers);
+[e = _operation ( _pop (1 &U _stack_numbers ]
+"74
+[; ;application.c: 74:         switch (operation) {
+[e $U 310  ]
+{
+"75
+[; ;application.c: 75:             case '*':
+[e :U 311 ]
+"77
+[; ;application.c: 77:                 stack_numbers.stack_data[operation - 1] = 0;
+[e = *U + . _stack_numbers 2 * -> - -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x -> -> 0 `i `uc ]
+"78
+[; ;application.c: 78:                 stack_numbers.stack_data[operation] = '+';
+[e = *U + . _stack_numbers 2 * -> _operation `ux -> -> # *U . _stack_numbers 2 `ui `ux -> -> 43 `ui `uc ]
+"79
+[; ;application.c: 79:                 stack_numbers.stack_data[operation + 1] = (uint32) (stack_numbers.stack_data[operation - 1] * stack_numbers.stack_data[operation + 1]);
+[e = *U + . _stack_numbers 2 * -> + -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x -> -> * -> *U + . _stack_numbers 2 * -> - -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i -> *U + . _stack_numbers 2 * -> + -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i `ui `uc ]
+"80
+[; ;application.c: 80:                 break;
+[e $U 309  ]
+"81
+[; ;application.c: 81:             case '/':
+[e :U 312 ]
+"83
+[; ;application.c: 83:                 stack_numbers.stack_data[operation - 1] = 0;
+[e = *U + . _stack_numbers 2 * -> - -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x -> -> 0 `i `uc ]
+"84
+[; ;application.c: 84:                 stack_numbers.stack_data[operation] = '+';
+[e = *U + . _stack_numbers 2 * -> _operation `ux -> -> # *U . _stack_numbers 2 `ui `ux -> -> 43 `ui `uc ]
+"85
+[; ;application.c: 85:                 stack_numbers.stack_data[operation + 1] = (uint32) (stack_numbers.stack_data[operation - 1] / stack_numbers.stack_data[operation + 1]);
+[e = *U + . _stack_numbers 2 * -> + -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x -> -> / -> *U + . _stack_numbers 2 * -> - -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i -> *U + . _stack_numbers 2 * -> + -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i `ui `uc ]
+"87
+[; ;application.c: 87:                 break;
+[e $U 309  ]
+"88
+[; ;application.c: 88:             default :
+[e :U 313 ]
+"89
+[; ;application.c: 89:                 break;
+[e $U 309  ]
+"93
+[; ;application.c: 93:         }
+}
+[e $U 309  ]
+[e :U 310 ]
+[e [\ -> _operation `i , $ -> -> 42 `ui `i 311
+ , $ -> -> 47 `ui `i 312
+ 313 ]
+[e :U 309 ]
+"96
+[; ;application.c: 96:     }
+}
+[e :U 306 ]
+"71
+[; ;application.c: 71:     while (loop_counter--) {
+[e $ != -> -- _loop_counter -> -> 1 `i `uc `i -> 0 `i 307  ]
+[e :U 308 ]
+"97
+[; ;application.c: 97:      loop_counter = stack_size(&stack_numbers);
+[e = _loop_counter ( _stack_size (1 &U _stack_numbers ]
+"98
+[; ;application.c: 98:      operation = 0;
+[e = _operation -> -> 0 `i `uc ]
+"100
+[; ;application.c: 100:     while (loop_counter--) {
+[e $U 314  ]
+[e :U 315 ]
+{
+"101
+[; ;application.c: 101:         operation = stack_numbers.stack_data[stack_size(&stack_numbers) - loop_counter ];
+[e = _operation *U + . _stack_numbers 2 * -> - -> ( _stack_size (1 &U _stack_numbers `i -> _loop_counter `i `x -> -> # *U . _stack_numbers 2 `i `x ]
+"102
+[; ;application.c: 102:         switch (operation) {
+[e $U 318  ]
+{
+"103
+[; ;application.c: 103:             case '+':
+[e :U 319 ]
+"104
+[; ;application.c: 104:                 result += (uint32) (stack_numbers.stack_data[operation - 1] + stack_numbers.stack_data[operation + 1]);
+[e =+ _result -> + -> *U + . _stack_numbers 2 * -> - -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i -> *U + . _stack_numbers 2 * -> + -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i `ui ]
+"105
+[; ;application.c: 105:                 break;
+[e $U 317  ]
+"106
+[; ;application.c: 106:             case '-':
+[e :U 320 ]
+"107
+[; ;application.c: 107:                 result += (uint32) (stack_numbers.stack_data[operation - 1] - stack_numbers.stack_data[operation + 1]);
+[e =+ _result -> - -> *U + . _stack_numbers 2 * -> - -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i -> *U + . _stack_numbers 2 * -> + -> _operation `i -> 1 `i `x -> -> # *U . _stack_numbers 2 `i `x `i `ui ]
+"109
+[; ;application.c: 109:                 break;
+[e $U 317  ]
+"110
+[; ;application.c: 110:             default :
+[e :U 321 ]
+"111
+[; ;application.c: 111:                 break;
+[e $U 317  ]
+"115
+[; ;application.c: 115:         }
+}
+[e $U 317  ]
+[e :U 318 ]
+[e [\ -> _operation `i , $ -> -> 43 `ui `i 319
+ , $ -> -> 45 `ui `i 320
+ 321 ]
+[e :U 317 ]
+"118
+[; ;application.c: 118:     }
+}
+[e :U 314 ]
+"100
+[; ;application.c: 100:     while (loop_counter--) {
+[e $ != -> -- _loop_counter -> -> 1 `i `uc `i -> 0 `i 315  ]
+[e :U 316 ]
+"120
+[; ;application.c: 120:      return result;
+[e ) -> _result `uc ]
+[e $UE 305  ]
+"122
+[; ;application.c: 122: }
+[e :UE 305 ]
+}
